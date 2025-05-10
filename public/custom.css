@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+.font-outfit {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.text-zprimary {
+    color: #b03335;
+}
+.bg-zprimary {
+    background-color: #b03335;
+}
+
+.btn-zprimary {
+    color: #fff;
+    background-color: #b03335;
+    border-color: #b03335;
+}
+.btn-zprimary:hover {
+    background-color: #a02a2d;
+    border-color: #a02a2d;
+}
+
+.border-zprimary {
+    border-color: #b03335;
+}
+.border-zprimary:hover {
+    border-color: #a02a2d;
+    background-color: #a02a2d;
+    color: #fff;
+}
+
+body{
+    background-color: #F0F0F0;
+}
+.bg-label{
+    background-color: #ECE7E7;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
