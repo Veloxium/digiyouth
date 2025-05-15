@@ -40,3 +40,9 @@ body{
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+.active{
+    color: #a02a2d !important;
+}
+.pag:hover{
+    background-color: #b03335 !important;
+}
