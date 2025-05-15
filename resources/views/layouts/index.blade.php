@@ -20,8 +20,8 @@
                     <img src="/images/logo.png" alt="logo" class="object-contain h-10" />
                 </a>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="#" class="text-lg px-2 py-1">Beranda</a>
-                    <a href="#" class="text-lg px-2 py-1">Kategori</a>
+                    <a class="text-lg px-2 py-1 @if(request()->is('/')) active @endif" href="{{ url('/') }}">Beranda</a>
+                    <a class="text-lg px-2 py-1 @if(request()->is('category')) active @endif" href="{{ url('/category') }}">Kategori</a>
                     <a href="#" class="text-lg px-2 py-1">Portofolio</a>
                     <a href="#" class="text-lg px-2 py-1">Reward</a>
                 </div>
