@@ -45,7 +45,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-4 my-20 w-full">
                     @for ($i = 0; $i < 6; $i++)
-                        <a href="{{ url('category/detail') }}">
+                        <a href="{{ url('category/dummyID/detail') }}">
                             <div class="card" style="flex: 0 0 auto;">
 
                                 <div
