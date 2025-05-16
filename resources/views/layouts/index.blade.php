@@ -23,7 +23,7 @@
                     <a class="text-lg px-2 py-1 @if(request()->is('/')) active @endif" href="{{ url('/') }}">Beranda</a>
                     <a class="text-lg px-2 py-1 @if(request()->is('category')) active @endif" href="{{ url('/category') }}">Kategori</a>
                     <a class="text-lg px-2 py-1 @if(request()->is('portofolio')) active @endif" href="{{ url('/portofolio') }}">Portofolio</a>
-                    <a href="#" class="text-lg px-2 py-1">Reward</a>
+                    <a class="text-lg px-2 py-1 @if(request()->is('reward')) active @endif" href="{{ url('/reward') }}">Reward</a>
                 </div>
             </div>
 
@@ -43,7 +43,9 @@
                     @auth
                     <button class="px-6 py-2 btn-zprimary rounded">Logout</button>
                     @else
-                    <button class="px-6 py-2 btn-zprimary rounded">Login</button>
+                        <button  class="px-6 py-2 btn-zprimary rounded">
+                            <a href="{{ url('/authentication/login') }}" >Login</a>
+                        </button>
                     @endauth
                 </div>
                 <button class="p-2">
