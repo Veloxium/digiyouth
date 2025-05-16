@@ -116,7 +116,7 @@
                         <p class="font-semibold">Suka dengan project ini?</p>
                         <div class="flex items-center gap-4">
                             <div class="flex items-center gap-2">
-                                <img src="/images//thumb.svg" alt="like" class="w-6 h-6" />
+                                <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
                                 <p class="text-sm text-gray-400 font-semibold">200</p>
                             </div>
                             <div class="flex items-center gap-2">
@@ -132,9 +132,193 @@
                                 <div class="w-full rounded-lg shadow p-4 border border-gray-200">
                                     <form action="#" method="POST" class="flex flex-col items-end gap-2 w-full">
                                         @csrf
-                                        <textarea id="comment" name="comment" placeholder="Add a comment..." class="w-full px-4 py-2 focus:outline-none focus:border-zprimary resize-y h-auto min-h-[80px]" rows="1" style="overflow:hidden">{{ old('comment') }}</textarea>
-                                        <button type="submit" class="px-10 py-3 bg-zprimary text-white rounded-md hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                        <textarea id="comment" name="comment" placeholder="Add a comment..."
+                                            class="w-full px-4 py-2 focus:outline-none focus:border-zprimary resize-y h-auto min-h-[80px]" rows="1"
+                                            style="overflow:hidden">{{ old('comment') }}</textarea>
+                                        <button type="submit"
+                                            class="px-10 py-3 bg-zprimary text-white rounded-md hover:bg-zprimary-dark transition-colors">Kirim</button>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start justify-between gap-2 mt-20">
+                            <div class="space-y-4">
+                                <p class="font-semibold">Komentar Lainnya</p>
+                                <p class="text-sm">3 Komentar</p>
+                            </div>
+                            <button class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
+                                style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
+                                onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
+                                onmouseout="this.style.backgroundColor='';this.style.color='';">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-list-filter-icon lucide-list-filter">
+                                    <path d="M3 6h18" />
+                                    <path d="M7 12h10" />
+                                    <path d="M10 18h4" />
+                                </svg>
+                                <span class="text-sm">Filter</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="space-y-6 mt-8" x-data="{ openReply: null }">
+                            <!-- Comment 1: With Reply -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                        A
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Ezar Fausta Rafi</p>
+                                            <span>- 1 Hari yang Lalu</span>
+                                        </div>
+                                        <p class="text-gray-400">XII SIJA 2</p>
+                                        <p class="text-gray-700 mt-2">
+                                            Desain web-nya sangat menarik dan profesional. Kombinasi warna dan tipografinya
+                                            sangat pas. Layout web-nya sangat user-friendly dan mudah dinavigasi. Pengunjung
+                                            pasti akan betah berlama-lama di sini. Konsep desain web-nya sangat kreatif dan
+                                            unik. Saya belum pernah melihat yang seperti ini sebelumnya.
+                                        </p>
+                                        <div class="flex items-center gap-4 mt-2">
+                                            <div class="flex items-center gap-2">
+                                                <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">200</p>
+                                            </div>
+                                            <button @click="openReply === 1 ? openReply = null : openReply = 1" class="flex items-center gap-2 focus:outline-none">
+                                                <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">Reply</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
+                                                    :class="{'rotate-180': openReply === 1}">
+                                                    <path d="m6 9 6 6 6-6" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Replies Section -->
+                                <div x-show="openReply === 1" x-transition class="ml-16 mt-2 space-y-4">
+                                    <!-- Example Reply -->
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">B</div>
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <p class="font-semibold">Rizky Maulana</p>
+                                                <span class="text-xs text-gray-400">- 2 Jam yang lalu</span>
+                                            </div>
+                                            <p class="text-gray-700">Setuju! Desainnya memang keren banget.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Add Reply Form -->
+                                    <form action="#" method="POST" class="flex items-start gap-3">
+                                        @csrf
+                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">A</div>
+                                        <div class="flex-1">
+                                            <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
+                                            <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Comment 2: No Reply -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                        C
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Nadia Putri</p>
+                                            <span>- 3 Hari yang Lalu</span>
+                                        </div>
+                                        <p class="text-gray-400">XII RPL 1</p>
+                                        <p class="text-gray-700 mt-2">
+                                            Saya suka animasi transisinya, sangat smooth dan tidak mengganggu pengalaman pengguna. Good job!
+                                        </p>
+                                        <div class="flex items-center gap-4 mt-2">
+                                            <div class="flex items-center gap-2">
+                                                <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">120</p>
+                                            </div>
+                                            <button @click="openReply === 2 ? openReply = null : openReply = 2" class="flex items-center gap-2 focus:outline-none">
+                                                <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">Reply</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
+                                                    :class="{'rotate-180': openReply === 2}">
+                                                    <path d="m6 9 6 6 6-6" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <!-- Reply Form -->
+                                        <div x-show="openReply === 2" x-transition class="mt-2">
+                                            <form action="#" method="POST" class="flex items-start gap-3">
+                                                @csrf
+                                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">C</div>
+                                                <div class="flex-1">
+                                                    <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
+                                                    <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Comment 3: No Reply -->
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                        D
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2">
+                                            <p class="font-semibold">Bagas Pratama</p>
+                                            <span>- 5 Hari yang Lalu</span>
+                                        </div>
+                                        <p class="text-gray-400">XII TKJ 3</p>
+                                        <p class="text-gray-700 mt-2">
+                                            Fitur-fitur yang disediakan sangat lengkap dan mudah digunakan. Semoga bisa terus dikembangkan!
+                                        </p>
+                                        <div class="flex items-center gap-4 mt-2">
+                                            <div class="flex items-center gap-2">
+                                                <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">75</p>
+                                            </div>
+                                            <button @click="openReply === 3 ? openReply = null : openReply = 3" class="flex items-center gap-2 focus:outline-none">
+                                                <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
+                                                <p class="text-sm text-gray-400 font-semibold">Reply</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
+                                                    :class="{'rotate-180': openReply === 3}">
+                                                    <path d="m6 9 6 6 6-6" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <!-- Reply Form -->
+                                        <div x-show="openReply === 3" x-transition class="mt-2">
+                                            <form action="#" method="POST" class="flex items-start gap-3">
+                                                @csrf
+                                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">D</div>
+                                                <div class="flex-1">
+                                                    <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
+                                                    <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,8 +328,9 @@
         </section>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const textarea = document.getElementById('comment');
+
             function autoResize() {
                 this.style.height = 'auto';
                 this.style.height = (this.scrollHeight) + 'px';
