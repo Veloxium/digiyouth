@@ -22,7 +22,7 @@
                 <div class="hidden md:flex items-center gap-4">
                     <a class="text-lg px-2 py-1 @if(request()->is('/')) active @endif" href="{{ url('/') }}">Beranda</a>
                     <a class="text-lg px-2 py-1 @if(request()->is('category')) active @endif" href="{{ url('/category') }}">Kategori</a>
-                    <a href="#" class="text-lg px-2 py-1">Portofolio</a>
+                    <a class="text-lg px-2 py-1 @if(request()->is('portofolio')) active @endif" href="{{ url('/portofolio') }}">Portofolio</a>
                     <a href="#" class="text-lg px-2 py-1">Reward</a>
                 </div>
             </div>
@@ -66,9 +66,9 @@
 
             <!-- Mobile Dropdown Menu -->
             <div x-show="open" class="w-full mt-4 md:hidden flex flex-col gap-2">
-                <a href="#" class="block text-base py-2">Beranda</a>
-                <a href="#" class="block text-base py-2">Kategori</a>
-                <a href="#" class="block text-base py-2">Portofolio</a>
+                <a class="block text-base py-2 @if(request()->is('/')) active @endif" href="{{ url('/') }}">Beranda</a>
+                <a class="block text-base py-2 @if(request()->is('category')) active @endif" href="{{ url('/category') }}">Kategori</a>
+                <a class="block text-base py-2 @if(request()->is('portofolio')) active @endif" href="{{ url('/portofolio') }}">Portofolio</a>
                 <a href="#" class="block text-base py-2">Reward</a>
                 <div class="relative">
                     <div class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
