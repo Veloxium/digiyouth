@@ -6,7 +6,7 @@
 
     <div class="font-outfit">
         <section>
-            <div class="mt-10 md:my-20 place-content-start place-items-center gap-4  mx-auto px-4 sm:px-6 lg:px-20">
+            <div class="my-10  md:my-20 place-content-start place-items-center gap-4 mx-auto px-4 sm:px-6 lg:px-20">
                 <div class="relative w-full h-[400px] bg-zprimary rounded-2xl flex items-center justify-center">
                     <img src="/images/detail.png" alt="detail-blog"
                         class="w-full h-full object-cover rounded-2xl absolute inset-0 z-0" />
@@ -14,26 +14,26 @@
                     <div
                         class="max-w-5xl mx-auto w-full text-center relative z-20 place-items-center place-content-start h-full">
                         <a href="{{ url('category') }}"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors absolute top-20 left-4">
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors absolute top-6 md:top-20 left-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                         </a>
-                        <div class="mt-28 place-items-center">
+                        <div class="mt-16 md:mt-28 place-items-center">
                             <div class="w-20 h-2 bg-zprimary my-4"></div>
                             <h1 class="text-white text-4xl md:text-5xl font-bold ">UB Business Case - Held by FEB UB</h1>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 md:mt-16">
                             <div class="flex flex-col items-start text-sm text-white">
                                 <p>Creator: Indayani Pratama</p>
                                 <p>Team: Zoro Adam, Madelleine Putri , Sanji Zuckberg</p>
                             </div>
-                            <div class="flex gap-2 items-center justify-center text-sm text-white">
+                            <div class="flex gap-2 items-center justify-start md:justify-center text-sm text-white">
                                 <p class="px-6 py-2 bg-label rounded-full text-zprimary">Hipster</p>
                                 <p>10 September 2024</p>
                             </div>
-                            <div class="flex items-center justify-end gap-4">
+                            <div class="flex items-center justify-start md:justify-end gap-4">
                                 <div class="flex items-center gap-2">
                                     <img src="/images/thumb-w.svg" alt="like" class="w-6 h-6" />
                                     <p class="text-sm text-white font-semibold">200</p>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative max-w-5xl mx-auto w-full bg-[#F0F0F0F3] -mt-20 z-20 rounded-2xl py-14 px-16 shadow-md">
+                <div class="relative max-w-5xl mx-auto w-full bg-[#F0F0F0F3] -mt-10 md:-mt-20 z-20 rounded-2xl py-14 px-4 md:px-16 shadow-md">
                     <div class="w-full h-[280px]">
                         <img src="/images/detail.png" alt="detail-image" class="w-full h-full object-cover rounded-2xl" />
                     </div>
@@ -282,7 +282,7 @@
                                         D
                                     </div>
                                     <div class="flex-1">
-                                        <div class="flex items-center gap-2">
+                                            <div class="flex items-center gap-2">
                                             <p class="font-semibold">Bagas Pratama</p>
                                             <span>- 5 Hari yang Lalu</span>
                                         </div>
