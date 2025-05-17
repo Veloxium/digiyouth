@@ -13,7 +13,7 @@
 <body class="font-outfit">
     <!-- Navbar -->
     <nav class="shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between flex-wrap">
+        <div class="mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between flex-wrap">
             <!-- Left: Logo & Menu -->
             <div class="flex items-center gap-4">
                 <a href="/" class="w-40">
@@ -43,9 +43,9 @@
                     @auth
                     <button class="px-6 py-2 btn-zprimary rounded">Logout</button>
                     @else
-                        <button  class="px-6 py-2 btn-zprimary rounded">
-                            <a href="{{ url('/authentication/login') }}" >Login</a>
-                        </button>
+                        <a href="{{ url('/authentication/login') }}"  class="px-6 py-2 btn-zprimary rounded">
+                            Login
+                        </a>
                     @endauth
                 </div>
                 <button class="p-2">
@@ -86,7 +86,7 @@
                     @auth
                     <button class="w-full py-2 btn-zprimary rounded">Logout</button>
                     @else
-                    <button class="w-full py-2 btn-zprimary rounded">Login</button>
+                    <a href="{{ url('/authentication/login') }}"  class="w-full py-2 btn-zprimary rounded">Login</a>
                     @endauth
                 </div>
             </div>
@@ -99,7 +99,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="grid grid-cols-2 md:grid-cols-6 gap-x-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-4 md:py-10 font-outfit">
+    <footer class="grid grid-cols-2 md:grid-cols-6 gap-x-8 mx-auto px-4 sm:px-6 lg:px-20 py-4 md:py-10 font-outfit">
         <div class="flex flex-col col-span-2">
             <div class="w-56 mb-4">
                 <img src="/images/logo.png" alt="logo" class="object-cover" />

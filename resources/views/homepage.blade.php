@@ -11,10 +11,10 @@
                 <p class="text-zprimary">Part of SMK TELKOM SIDOARJO</p>
                 <h1 class="text-4xl font-bold mb-4">Bikin Karya? <br>
                     Yuk, Tunjukin Karyamu!</h1>
-                <p class="text mb-8 max-w-lg">
+                <p class="text-lg mb-8 max-w-lg">
                     Tunjukkan inovasimu di DigiYouth Showcase dan buat dunia melihat potensimu. Jangan lewatkan momen ini, kirimkan karyamu sekarang, dan jadilah pelopor di era digital!
                 </p>
-                <a href="" class="px-8 py-2 btn-zprimary rounded">Start Your Journey</a>
+                <a href="" class="px-8 py-3 btn-zprimary rounded">Start Your Journey</a>
             </div>
             <div class="relative">
                 <img src="/images/banner.png" alt="hero" class="object-contain" />

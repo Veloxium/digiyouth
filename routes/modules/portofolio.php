@@ -4,4 +4,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/portofolio')->group(function () {
     Route::get('/', [PortofolioController::class, 'index']);
+    Route::get('/upload-project', [PortofolioController::class, 'upload']);
 });
