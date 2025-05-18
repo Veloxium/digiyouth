@@ -16,4 +16,8 @@ class PortofolioController extends Controller
     {
         return view('guest.portofolio.upload');
     }
+    public function tracking(): View
+    {
+        return view('guest.portofolio.tracking');
+    }
 }

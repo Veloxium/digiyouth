@@ -36,16 +36,23 @@
                     <p class="text-lg">Eksplor berbagai project menarik dari Sanji Zuckerberg</p>
                 </div>
                 <div class="mt-20 flex flex-1 w-full items-center justify-between">
-                    <a href="{{ url('portofolio/upload-project') }}" class="w-fit flex py-3 px-4 gap-2 btn-zprimary rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-upload-icon lucide-upload">
-                            <path d="M12 3v12" />
-                            <path d="m17 8-5-5-5 5" />
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        </svg>
-                        <p>Upload Project</p>
-                    </a>
+                    <div class="flex items-center gap-4">
+                        <a href="{{ url('portofolio/upload-project') }}"
+                            class="w-fit flex py-3 px-4 gap-2 btn-zprimary rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-upload-icon lucide-upload">
+                                <path d="M12 3v12" />
+                                <path d="m17 8-5-5-5 5" />
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            </svg>
+                            <p>Upload Project</p>
+                        </a>
+                        <a href="{{ url('portofolio/tracking') }}"
+                            class="w-fit flex py-3 px-4 gap-2 border border-zprimary rounded">
+                            <p>1 project sedang dalam review</p>
+                        </a>
+                    </div>
                     <button class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
                         style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
                         onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
@@ -108,7 +115,8 @@
                             class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
                             </svg>
                         </a>
                         <a href="#"
