@@ -6,18 +6,20 @@
 
     <div class="font-outfit">
         <section>
-            <div class="my-10  md:my-20 place-content-start place-items-center gap-4 mx-auto px-4 sm:px-6 lg:px-20">
+            <div class="my-10 md:my-20 place-content-start place-items-center gap-4 mx-auto sm:px-6 lg:px-20">
                 <div class="relative w-full h-[400px] bg-zprimary rounded-2xl flex items-center justify-center">
                     <img src="/images/detail.png" alt="detail-blog"
                         class="w-full h-full object-cover rounded-2xl absolute inset-0 z-0" />
                     <div class="absolute inset-0 bg-black opacity-35 rounded-2xl z-10"></div>
                     <div
                         class="max-w-5xl mx-auto w-full text-center relative z-20 place-items-center place-content-start h-full">
-                        <a href="{{ url('category') }}"
+                        <a href="{{ url('/category') }}"
                             class="w-10 h-10 flex justify-center items-center bg-white rounded pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors absolute top-6 md:top-20 left-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
+                                <path d="m12 19-7-7 7-7" />
+                                <path d="M19 12H5" />
                             </svg>
                         </a>
                         <div class="mt-16 md:mt-28 place-items-center">
@@ -50,7 +52,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative max-w-5xl mx-auto w-full bg-[#F0F0F0F3] -mt-10 md:-mt-20 z-20 rounded-2xl py-14 px-4 md:px-16 shadow-md">
+                <div
+                    class="relative max-w-5xl mx-auto w-full bg-[#F0F0F0F3] -mt-10 md:-mt-20 z-20 rounded-2xl py-14 px-4 md:px-16 shadow-md">
                     <div class="w-full h-[280px]">
                         <img src="/images/detail.png" alt="detail-image" class="w-full h-full object-cover rounded-2xl" />
                     </div>
@@ -120,13 +123,13 @@
                                 <p class="text-sm text-gray-400 font-semibold">200</p>
                             </div>
                             <div class="flex items-center gap-2">
-                                <img src="/images//share.svg" alt="share" class="w-6 h-6" />
+                                <img src="/images/share.svg" alt="share" class="w-6 h-6" />
                                 <p class="text-sm text-gray-400 font-semibold">Share</p>
                             </div>
                         </div>
                         <p class="font-semibold">Preview</p>
                         <div class="flex items-start gap-2">
-                            <div class="w-10 h-10 rounded-full bg-zprimary"></div>
+                            <div class="w-12 h-12 rounded-full bg-zprimary"></div>
                             <div class="flex flex-col items-start gap-2 mt-2 flex-1">
                                 <p>Anonymous</p>
                                 <div class="w-full rounded-lg shadow p-4 border border-gray-200">
@@ -171,7 +174,8 @@
                             <!-- Comment 1: With Reply -->
                             <div class="flex flex-col gap-2">
                                 <div class="flex items-start gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
                                         A
                                     </div>
                                     <div class="flex-1">
@@ -191,14 +195,15 @@
                                                 <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">200</p>
                                             </div>
-                                            <button @click="openReply === 1 ? openReply = null : openReply = 1" class="flex items-center gap-2 focus:outline-none">
+                                            <button @click="openReply === 1 ? openReply = null : openReply = 1"
+                                                class="flex items-center gap-2 focus:outline-none">
                                                 <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">Reply</p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
-                                                    :class="{'rotate-180': openReply === 1}">
+                                                    :class="{ 'rotate-180': openReply === 1 }">
                                                     <path d="m6 9 6 6 6-6" />
                                                 </svg>
                                             </button>
@@ -209,22 +214,38 @@
                                 <div x-show="openReply === 1" x-transition class="ml-16 mt-2 space-y-4">
                                     <!-- Example Reply -->
                                     <div class="flex items-start gap-3">
-                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">B</div>
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                                            B</div>
                                         <div>
                                             <div class="flex items-center gap-2">
                                                 <p class="font-semibold">Rizky Maulana</p>
-                                                <span class="text-xs text-gray-400">- 2 Jam yang lalu</span>
+                                                <span>ke</span>
+                                                <span class="font-semibold text-zprimary">Ezar Fausta Rafi</span>
+                                                <span class="text-gray-400">- 2 Jam yang lalu</span>
                                             </div>
-                                            <p class="text-gray-700">Setuju! Desainnya memang keren banget.</p>
+                                            <p class="text-gray-400">XII SIJA 2</p>
+                                            <p class="text-gray-700 mt-2">Setuju! Desainnya memang keren banget.</p>
                                         </div>
                                     </div>
                                     <!-- Add Reply Form -->
                                     <form action="#" method="POST" class="flex items-start gap-3">
                                         @csrf
-                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">A</div>
-                                        <div class="flex-1">
-                                            <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
-                                            <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                        <div class="w-full flex items-start gap-2">
+                                            <div class="w-12 h-12 rounded-full bg-zprimary"></div>
+                                            <div class="flex flex-col items-start flex-1">
+                                                <div class="flex items-center gap-2">
+                                                    <p class="font-semibold">Sudah Login</p>
+                                                </div>
+                                                <p class="text-gray-400">XII TKJ 3</p>
+                                                <div class="w-full mt-2 flex flex-col items-end rounded-lg shadow p-4 border border-gray-200">
+                                                        <textarea id="comment" name="comment" placeholder="Add a comment..."
+                                                            class="w-full px-4 py-2 focus:outline-none focus:border-zprimary resize-y h-auto min-h-[80px]" rows="1"
+                                                            style="overflow:hidden">{{ old('comment') }}</textarea>
+                                                        <button type="submit"
+                                                            class="px-10 py-3 w-fit bg-zprimary text-white rounded-md hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -232,7 +253,8 @@
                             <!-- Comment 2: No Reply -->
                             <div class="flex flex-col gap-2">
                                 <div class="flex items-start gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
                                         C
                                     </div>
                                     <div class="flex-1">
@@ -242,21 +264,23 @@
                                         </div>
                                         <p class="text-gray-400">XII RPL 1</p>
                                         <p class="text-gray-700 mt-2">
-                                            Saya suka animasi transisinya, sangat smooth dan tidak mengganggu pengalaman pengguna. Good job!
+                                            Saya suka animasi transisinya, sangat smooth dan tidak mengganggu pengalaman
+                                            pengguna. Good job!
                                         </p>
                                         <div class="flex items-center gap-4 mt-2">
                                             <div class="flex items-center gap-2">
                                                 <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">120</p>
                                             </div>
-                                            <button @click="openReply === 2 ? openReply = null : openReply = 2" class="flex items-center gap-2 focus:outline-none">
+                                            <button @click="openReply === 2 ? openReply = null : openReply = 2"
+                                                class="flex items-center gap-2 focus:outline-none">
                                                 <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">Reply</p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
-                                                    :class="{'rotate-180': openReply === 2}">
+                                                    :class="{ 'rotate-180': openReply === 2 }">
                                                     <path d="m6 9 6 6 6-6" />
                                                 </svg>
                                             </button>
@@ -265,10 +289,21 @@
                                         <div x-show="openReply === 2" x-transition class="mt-2">
                                             <form action="#" method="POST" class="flex items-start gap-3">
                                                 @csrf
-                                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">C</div>
-                                                <div class="flex-1">
-                                                    <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
-                                                    <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                <div class="w-full flex items-start gap-2">
+                                                    <div class="w-12 h-12 rounded-full bg-zprimary"></div>
+                                                    <div class="flex flex-col items-start flex-1">
+                                                        <div class="flex items-center gap-2">
+                                                            <p class="font-semibold">Sudah Login</p>
+                                                        </div>
+                                                        <p class="text-gray-400">XII TKJ 3</p>
+                                                        <div class="w-full mt-2 flex flex-col items-end rounded-lg shadow p-4 border border-gray-200">
+                                                                <textarea id="comment" name="comment" placeholder="Add a comment..."
+                                                                    class="w-full px-4 py-2 focus:outline-none focus:border-zprimary resize-y h-auto min-h-[80px]" rows="1"
+                                                                    style="overflow:hidden">{{ old('comment') }}</textarea>
+                                                                <button type="submit"
+                                                                    class="px-10 py-3 w-fit bg-zprimary text-white rounded-md hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
@@ -278,31 +313,34 @@
                             <!-- Comment 3: No Reply -->
                             <div class="flex flex-col gap-2">
                                 <div class="flex items-start gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
                                         D
                                     </div>
                                     <div class="flex-1">
-                                            <div class="flex items-center gap-2">
+                                        <div class="flex items-center gap-2">
                                             <p class="font-semibold">Bagas Pratama</p>
                                             <span>- 5 Hari yang Lalu</span>
                                         </div>
                                         <p class="text-gray-400">XII TKJ 3</p>
                                         <p class="text-gray-700 mt-2">
-                                            Fitur-fitur yang disediakan sangat lengkap dan mudah digunakan. Semoga bisa terus dikembangkan!
+                                            Fitur-fitur yang disediakan sangat lengkap dan mudah digunakan. Semoga bisa
+                                            terus dikembangkan!
                                         </p>
                                         <div class="flex items-center gap-4 mt-2">
                                             <div class="flex items-center gap-2">
                                                 <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">75</p>
                                             </div>
-                                            <button @click="openReply === 3 ? openReply = null : openReply = 3" class="flex items-center gap-2 focus:outline-none">
+                                            <button @click="openReply === 3 ? openReply = null : openReply = 3"
+                                                class="flex items-center gap-2 focus:outline-none">
                                                 <img src="/images/chat.svg" alt="like" class="w-6 h-6" />
                                                 <p class="text-sm text-gray-400 font-semibold">Reply</p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="lucide lucide-chevron-down-icon lucide-chevron-down text-gray-400 mt-1"
-                                                    :class="{'rotate-180': openReply === 3}">
+                                                    :class="{ 'rotate-180': openReply === 3 }">
                                                     <path d="m6 9 6 6 6-6" />
                                                 </svg>
                                             </button>
@@ -311,10 +349,21 @@
                                         <div x-show="openReply === 3" x-transition class="mt-2">
                                             <form action="#" method="POST" class="flex items-start gap-3">
                                                 @csrf
-                                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">D</div>
-                                                <div class="flex-1">
-                                                    <textarea name="reply" rows="1" placeholder="Tulis balasan..." class="w-full px-3 py-2 border rounded focus:outline-none focus:border-zprimary resize-y"></textarea>
-                                                    <button type="submit" class="mt-2 px-4 py-2 bg-zprimary text-white rounded hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                <div class="w-full flex items-start gap-2">
+                                                    <div class="w-12 h-12 rounded-full bg-zprimary"></div>
+                                                    <div class="flex flex-col items-start flex-1">
+                                                        <div class="flex items-center gap-2">
+                                                            <p class="font-semibold">Sudah Login</p>
+                                                        </div>
+                                                        <p class="text-gray-400">XII TKJ 3</p>
+                                                        <div class="w-full mt-2 flex flex-col items-end rounded-lg shadow p-4 border border-gray-200">
+                                                                <textarea id="comment" name="comment" placeholder="Add a comment..."
+                                                                    class="w-full px-4 py-2 focus:outline-none focus:border-zprimary resize-y h-auto min-h-[80px]" rows="1"
+                                                                    style="overflow:hidden">{{ old('comment') }}</textarea>
+                                                                <button type="submit"
+                                                                    class="px-10 py-3 w-fit bg-zprimary text-white rounded-md hover:bg-zprimary-dark transition-colors">Kirim</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>

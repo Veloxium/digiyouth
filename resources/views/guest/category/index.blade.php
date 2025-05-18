@@ -64,15 +64,15 @@
                                 </div>
                                 <div class="flex items-center gap-4">
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//thumb.svg" alt="like" class="w-6 h-6" />
+                                        <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
                                         <p class="text-sm text-gray-400 font-semibold">200</p>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//view.svg" alt="view" class="w-6 h-6" />
+                                        <img src="/images/view.svg" alt="view" class="w-6 h-6" />
                                         <p class="text-sm text-gray-400 font-semibold">1.340</p>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//share.svg" alt="share" class="w-6 h-6" />
+                                        <img src="/images/share.svg" alt="share" class="w-6 h-6" />
                                         <p class="text-sm text-gray-400 font-semibold">Share</p>
                                     </div>
                                 </div>

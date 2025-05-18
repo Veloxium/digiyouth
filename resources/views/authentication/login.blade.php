@@ -11,12 +11,12 @@
                     <form>
                         @csrf
                         <div class="mb-4">
-                            <label for="email" class="block text-lg font-medium text-gray-700">NIS</label>
+                            <label for="email" class="block text-lg font-medium">NIS</label>
                             <input type="text" name="nis" id="nis" required
                                 class="mt-1 block w-full px-3 py-4 border-gray-300 rounded-lg border focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm"
                                 placeholder="NIS Siswa">
                         </div>
-                        <label for="password" class="block text-lg font-medium text-gray-700">Password</label>
+                        <label for="password" class="block text-lg font-medium">Password</label>
                         <div class="mb-4 relative">
                             <input type="password" name="password" id="password" required
                                 class="mt-1 block w-full px-3 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm pr-12"
