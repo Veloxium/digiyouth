@@ -6,7 +6,7 @@
 
     <div class="font-outfit">
         <section>
-            <div class="my-10  md:my-20 place-content-start place-items-center gap-4 mx-auto px-4 sm:px-6 lg:px-20">
+            <div class="my-10 md:my-20 place-content-start place-items-center gap-4 mx-auto sm:px-6 lg:px-20">
                 <div class="relative w-full h-[400px] bg-zprimary rounded-2xl flex items-center justify-center">
                     <img src="/images/detail.png" alt="detail-blog"
                         class="w-full h-full object-cover rounded-2xl absolute inset-0 z-0" />

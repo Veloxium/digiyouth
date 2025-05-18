@@ -82,11 +82,11 @@
                     </div>
                     <input type="text" placeholder="Cari proyek..." class="w-full mt-2 pl-10 pr-4 py-2 text-sm border border-gray-200 rounded bg-white" />
                 </div>
-                <div>
+                <div class="mt-2 ms-auto">
                     @auth
                     <button class="w-full py-2 btn-zprimary rounded">Logout</button>
                     @else
-                    <a href="{{ url('/authentication/login') }}"  class="w-full py-2 btn-zprimary rounded">Login</a>
+                    <a href="{{ url('/authentication/login') }}"  class="w-full py-2 px-8 btn-zprimary rounded">Login</a>
                     @endauth
                 </div>
             </div>
@@ -153,6 +153,10 @@
         </div>
         <p class="col-span-2 flex justify-center md:hidden mt-8">Copyright © 2024 All right reserved | Skomda</p>
     </footer>
+    
+    <!-- Scripts -->
+    @yield('script')
+    
 </body>
 
 </html>

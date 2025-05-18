@@ -1,13 +1,13 @@
 @extends('layouts.index')
 
-@section('title', 'Portofolio')
+@section('title', 'Upload')
 
 @section('content')
 
     <div class="font-outfit">
         <section>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 lg:py-10 flex flex-col items-center justify-center mt-20">
-                <div class="flex justify-between items-center w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 lg:py-10 flex flex-col items-center justify-center mt-6">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8 md:items-center w-full">
                     <a href="{{ url('/portofolio') }}"
                         class="w-10 h-10 flex justify-center items-center bg-white rounded pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -17,13 +17,13 @@
                             <path d="M19 12H5" />
                         </svg>
                     </a>
-                    <div class="place-items-center">
+                    <div class="place-items-start md:place-items-center">
                         <div class="w-20 h-2 bg-zprimary my-4"></div>
                         <h1 class="text-4xl font-bold mb-4">Upload Projectmu</h1>
                     </div>
                     <div></div>
                 </div>
-                <form action="" class="w-full mx-auto max-w-4xl my-20">
+                <form action="" class="w-full mx-auto max-w-4xl mb-20 md:mb-0 md:my-20">
                     <div class="mb-4">
                         <label for="name" class="block text-lg font-medium">Nama<span
                                 class="text-zprimary">*</span></label>

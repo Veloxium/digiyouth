@@ -35,8 +35,8 @@
                     </div>
                     <p class="text-lg">Eksplor berbagai project menarik dari Sanji Zuckerberg</p>
                 </div>
-                <div class="mt-20 flex flex-1 w-full items-center justify-between">
-                    <div class="flex items-center gap-4">
+                <div class="mt-20 flex flex-1 w-full items-end md:items-center justify-between">
+                    <div class="flex flex-col-reverse md:flex-row items-start md:items-center gap-4">
                         <a href="{{ url('portofolio/upload-project') }}"
                             class="w-fit flex py-3 px-4 gap-2 btn-zprimary rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -74,9 +74,8 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-4 my-20 w-full">
                     @for ($i = 0; $i < 2; $i++)
-                        <a href="{{ url('category/dummyID/detail') }}">
+                        <a href="{{ url('portofolio/dummyID/statistic') }}">
                             <div class="card" style="flex: 0 0 auto;">
-
                                 <div
                                     class="relative overflow-hidden  h-[200px] md:h-[270px] w-full md:w-[424px] bg-zprimary rounded-2xl place-content-center place-items-center p-6 mb-4">
                                     <div class="flex items-center gap-2 z-20 absolute bottom-6 left-6">
