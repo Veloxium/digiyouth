@@ -6,9 +6,9 @@
 
     <div class="font-outfit">
         <section>
-            <div class="max-w-7xl mt-10 md:mt-20 place-content-start place-items-center gap-4 mx-auto px-4 sm:px-6 lg:px-20">
+            <div class="max-w-7xl mt-10 md:my-20 place-content-start place-items-center gap-4 mx-auto px-4 sm:px-6 lg:px-20">
                 <div class="flex flex-col md:flex-row justify-between items-start gap-8 md:items-center w-full">
-                    <a href="{{ url('/portofolio') }}"
+                    <a href="{{ url('portofolio') }}"
                         class="w-10 h-10 flex justify-center items-center bg-white rounded pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -55,7 +55,7 @@
                                                         <path d="m15 5 4 4" />
                                                     </svg>
                                                 </a>
-                                                <a href=""
+                                                <a href="{{ url('portofolio/tracking/dummyID/detail') }}"
                                                     class="w-12 h-12 flex justify-center items-center bg-zprimary text-white rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"

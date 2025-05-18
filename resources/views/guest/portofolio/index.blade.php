@@ -78,10 +78,6 @@
                             <div class="card" style="flex: 0 0 auto;">
                                 <div
                                     class="relative overflow-hidden  h-[200px] md:h-[270px] w-full md:w-[424px] bg-zprimary rounded-2xl place-content-center place-items-center p-6 mb-4">
-                                    <div class="flex items-center gap-2 z-20 absolute bottom-6 left-6">
-                                        <div class="w-8 h-8 bg-white my-2 rounded-full"></div>
-                                        <p class="text-white">Indayani Pratama</p>
-                                    </div>
                                     <div
                                         class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent">
                                     </div>
