@@ -8,40 +8,59 @@
         <section>
             <div class="mt-10 md:mt-20 place-content-start place-items-center gap-4  mx-auto px-4 sm:px-6 lg:px-20">
                 <div class="w-20 h-2 bg-zprimary my-4"></div>
-                <h1 class="text-4xl font-bold mb-4">Cloud Engineer</h1>
+                <h1 class="text-4xl font-bold mb-4 capitalize">{{ $item['title'] }}</h1>
                 <p class="text mb-8 max-w-7xl text-center">
-                    Keahlian di bidang teknologi dalam menyimpan, mengelola, dan mengakses data tanpa perlu server sendiri
+                    {{ $item['desc'] }}
                 </p>
                 <div class="mt-20 flex gap-2 flex-wrap justify-center items-center">
-                    <a href="" class="rounded-md py-1 px-2">Hacker</a>
-                    <a href="" class="rounded-md py-1 px-2">Hipster</a>
-                    <a href="" class="rounded-md py-1 px-2">Hustler</a>
-                    <a href="" class="rounded-md py-1 px-2">IoT Engineer</a>
-                    <a href="" class="rounded-md py-1 px-2 bg-zprimary text-white">Cloud Engineer</a>
-                    <a href="" class="rounded-md py-1 px-2">Graphic Designer</a>
-                    <a href="" class="rounded-md py-1 px-2">Network Engineer</a>
-                    <a href="" class="rounded-md py-1 px-2">Fiber Optic Engineer</a>
-                    <a href="" class="rounded-md py-1 px-2">System Administrator</a>
+                    @php
+                        $tags = [
+                            'hacker',
+                            'hipster',
+                            'hustler',
+                            'iot-engineer',
+                            'cloud-engineer',
+                            'graphic-designer',
+                            'network-engineer',
+                            'fiber-optic-engineer',
+                            'system-administrator',
+                        ];
+                    @endphp
+                    @foreach ($tags as $tag)
+                        <a href="{{ url('category/' . $tag) }}"
+                            class="rounded-md capitalize py-1 px-2 {{ $item['cat'] == $tag ? 'bg-zprimary text-white' : '' }}">{{ str_replace('-', ' ', $tag) }}</a>
+                    @endforeach
                 </div>
                 <div class="flex justify-center items-center gap-4 mt-10">
-                    <button class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
-                        style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
-                        onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
-                        onmouseout="this.style.backgroundColor='';this.style.color='';">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter">
-                            <path d="M3 6h18" />
-                            <path d="M7 12h10" />
-                            <path d="M10 18h4" />
-                        </svg>
-                        <span class="text-sm">Filter</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
+                    <div class="relative">
+                        <button type="button" id="filterDropdownBtn"
+                            class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
+                            style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
+                            onclick="document.getElementById('filterDropdownMenu').classList.toggle('hidden')"
+                            onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
+                            onmouseout="this.style.backgroundColor='';this.style.color='';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter">
+                                <path d="M3 6h18" />
+                                <path d="M7 12h10" />
+                                <path d="M10 18h4" />
+                            </svg>
+                            <span class="text-sm">Filter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div id="filterDropdownMenu"
+                            class="absolute right-0 mt-2 w-40 bg-white border border-[#b03335] rounded-md shadow-lg hidden z-50">
+                            <a href="?sort=terbaru"
+                                class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terbaru</a>
+                            <a href="?sort=terpopuler"
+                                class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terpopuler</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-4 my-20 w-full">
                     @for ($i = 0; $i < 6; $i++)
@@ -83,7 +102,7 @@
                 <div class="mb-20">
                     <nav class="flex items-center justify-center mt-8 space-x-2">
                         <a href="#"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors">
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-500 hover:bg-[#b03335] hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -92,15 +111,15 @@
                         <a href="#"
                             class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag bg-zprimary text-white">1</a>
                         <a href="#"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-zprimary hover:text-white transition-colors">2</a>
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">2</a>
                         <a href="#"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-zprimary hover:text-white transition-colors">3</a>
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">3</a>
                         <span
                             class="w-10 h-10 flex justify-center items-center bg-white text-gray-400 rounded-md">...</span>
                         <a href="#"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-zprimary hover:text-white transition-colors">10</a>
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">10</a>
                         <a href="#"
-                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-500 hover:bg-zprimary hover:text-white transition-colors">
+                            class="w-10 h-10 flex justify-center items-center bg-white rounded-md pag text-gray-500 hover:bg-[#b03335] hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 h-4" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -111,5 +130,16 @@
             </div>
         </section>
     </div>
-
+@endsection
+@section('script')
+    <script>
+        // Optional: Hide dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const btn = document.getElementById('filterDropdownBtn');
+            const menu = document.getElementById('filterDropdownMenu');
+            if (!btn.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
 @endsection
