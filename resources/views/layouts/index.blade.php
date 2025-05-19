@@ -13,7 +13,7 @@
 <body class="font-outfit">
     <!-- Navbar -->
     <nav class="shadow-lg">
-        <div class="mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between ">
+        <div class="mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between flex-wrap">
             <!-- Left: Logo & Menu -->
             <div class="flex items-center gap-4">
                 <a href="/" class="w-40">
@@ -228,8 +228,47 @@
             <div x-show="open" class="w-full mt-4 md:hidden flex flex-col gap-2">
                 <a class="block text-base py-2 @if (request()->is('/')) active @endif"
                     href="{{ url('/') }}">Beranda</a>
-                <a class="block text-base py-2 @if (request()->is('category')) active @endif"
-                    href="{{ url('/category') }}">Kategori</a>
+                <div x-data="{ openCategoryMobile: false }" class="relative">
+                    <button @click="openCategoryMobile = !openCategoryMobile"
+                        class="text-base py-2 w-full text-left flex items-center justify-between @if (request()->is('category')) active @endif"
+                        type="button">
+                        Kategori
+                        <svg :class="{ 'rotate-180': openCategoryMobile }" class="w-4 h-4 transition-transform inline-block"
+                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div x-show="openCategoryMobile" @click.away="openCategoryMobile = false" x-transition
+                        class="mt-2 w-full bg-base rounded z-20 flex flex-col">
+                        <a href="{{ url('/category/cloud-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Cloud Engineer
+                        </a>
+                        <a href="{{ url('/category/hacker') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Hacker
+                        </a>
+                        <a href="{{ url('/category/graphic-designer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Graphic Designer
+                        </a>
+                        <a href="{{ url('/category/hipster') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Hipster
+                        </a>
+                        <a href="{{ url('/category/hustler') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Hustler
+                        </a>
+                        <a href="{{ url('/category/iot-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            IoT Engineer
+                        </a>
+                        <a href="{{ url('/category/network-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Network Engineer
+                        </a>
+                        <a href="{{ url('/category/fiber-optic-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            Fiber Optic Engineer
+                        </a>
+                        <a href="{{ url('/category/system-administrator') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                            System Administrator
+                        </a>
+                    </div>
+                </div>
                 <a class="block text-base py-2 @if (request()->is('portofolio')) active @endif"
                     href="{{ url('/portofolio') }}">Portofolio</a>
                 <a href="#" class="block text-base py-2">Reward</a>
