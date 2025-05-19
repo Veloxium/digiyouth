@@ -30,7 +30,9 @@
     background-color: #a02a2d;
     color: #fff;
 }
-
+.border-zprimary-tab{
+    border-color: #b03335;
+}
 body{
     background-color: #F0F0F0;
 }
