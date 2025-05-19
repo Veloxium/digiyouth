@@ -24,4 +24,8 @@ class PortofolioController extends Controller
     {
         return view('guest.portofolio.statistic');
     }
+    public function detail(string $id): View
+    {
+        return view('guest.portofolio.detail');
+    }
 }
