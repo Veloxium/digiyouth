@@ -36,6 +36,9 @@
 body{
     background-color: #F0F0F0;
 }
+.bg-base{
+    background-color: #F0F0F0;
+}
 .bg-label{
     background-color: #ECE7E7;
 }

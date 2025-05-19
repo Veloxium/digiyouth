@@ -53,24 +53,35 @@
                             <p>1 project sedang dalam review</p>
                         </a>
                     </div>
-                    <button class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
-                        style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
-                        onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
-                        onmouseout="this.style.backgroundColor='';this.style.color='';">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter">
-                            <path d="M3 6h18" />
-                            <path d="M7 12h10" />
-                            <path d="M10 18h4" />
-                        </svg>
-                        <span class="text-sm">Filter</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
+                    <div class="relative">
+                        <button type="button" id="filterDropdownBtn"
+                            class="flex items-center gap-2 py-2 px-4 rounded-md transition-colors"
+                            style="transition: background-color 0.2s, color 0.2s; cursor: pointer;"
+                            onclick="document.getElementById('filterDropdownMenu').classList.toggle('hidden')"
+                            onmouseover="this.style.backgroundColor='#a02a2d';this.style.color='#fff';"
+                            onmouseout="this.style.backgroundColor='';this.style.color='';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter">
+                                <path d="M3 6h18" />
+                                <path d="M7 12h10" />
+                                <path d="M10 18h4" />
+                            </svg>
+                            <span class="text-sm">Filter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div id="filterDropdownMenu"
+                            class="absolute right-0 mt-2 w-40 bg-white border border-[#b03335] rounded-md shadow-lg hidden z-50">
+                            <a href="?sort=terbaru"
+                                class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terbaru</a>
+                            <a href="?sort=terpopuler"
+                                class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terpopuler</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-4 my-20 w-full">
                     @for ($i = 0; $i < 2; $i++)
