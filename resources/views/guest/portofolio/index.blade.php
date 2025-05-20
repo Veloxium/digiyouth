@@ -76,9 +76,9 @@
                         </button>
                         <div id="filterDropdownMenu"
                             class="absolute right-0 mt-2 w-40 bg-white border border-[#b03335] rounded-md shadow-lg hidden z-50">
-                            <a href="?sort=terbaru"
+                            <a href="?sort=latest"
                                 class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terbaru</a>
-                            <a href="?sort=terpopuler"
+                            <a href="?sort=popular"
                                 class="block px-4 py-2 text-gray-700 hover:bg-[#b03335] hover:text-white transition-colors">Terpopuler</a>
                         </div>
                     </div>
