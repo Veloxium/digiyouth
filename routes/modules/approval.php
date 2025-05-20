@@ -4,5 +4,5 @@ use App\Http\Controllers\ApprovalController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin/approval')->group(function () {
-    Route::get('/', [ApprovalController::class, 'index']);
+    Route::get('/', [ApprovalController::class, 'index'])->name('admin.approval');
 });

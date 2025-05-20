@@ -10,5 +10,5 @@ Route::prefix('/reward')->group(function () {
 
 // blom pakek middleware buat sliching dulu
 Route::prefix('/admin/reward')->group(function () {
-    Route::get('/', [RewardController::class, 'indexAdmin']);
+    Route::get('/', [RewardController::class, 'indexAdmin'])->name('admin.reward');
 });
