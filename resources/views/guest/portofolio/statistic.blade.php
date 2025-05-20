@@ -63,13 +63,14 @@
                 </div>
                 <div class="w-full mt-10 mb-20 max-w-5xl">
                     <div class="relative flex flex-col rounded-xl border border-gray-300 bg-clip-border shadow-md">
-                        <div class="relative mx-4 mt-4 flex justify-center gap-4 overflow-hidden rounded-none bg-transparent bg-clip-border shadow-none md:flex-row md:items-center">
+                        <div
+                            class="relative mx-4 mt-4 flex justify-center gap-4 overflow-hidden rounded-none bg-transparent bg-clip-border shadow-none md:flex-row md:items-center">
                             <p class="font-semibold">Views Insight</p>
                         </div>
                         <div class="pt-6 px-2 pb-0">
-                          <div id="chart"></div>
+                            <div id="chart"></div>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -88,6 +89,9 @@
                 height: 320,
                 toolbar: {
                     show: false,
+                },
+                zoom: {
+                    enabled: false,
                 },
             },
             title: {

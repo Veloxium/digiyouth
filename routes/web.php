@@ -9,4 +9,5 @@ require __DIR__ . '/modules/approval.php';
 require __DIR__ . '/modules/dashboard.php';
 require __DIR__ . '/modules/report.php';
 require __DIR__ . '/modules/statistic.php';
+require __DIR__ . '/modules/profile.php';
 
