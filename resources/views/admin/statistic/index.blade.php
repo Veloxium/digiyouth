@@ -182,6 +182,84 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-10">
+                    <p class="text-2xl font-semibold">Daftar Tukar Reward</p>
+                    <div class="rounded-2xl py-10 p-6 bg-white mt-4">
+                        @php
+                            // Dummy data for testing
+                            $rewardList = [
+                                (object) [
+                                    'no' => 1,
+                                    'nama' => 'Andi Wijaya',
+                                    'kelas' => 'XII RPL 1',
+                                    'reward' => 'Voucher Belanja',
+                                    'tanggal' => '2024-06-01',
+                                    'status' => 'Sudah Diambil',
+                                ],
+                                (object) [
+                                    'no' => 2,
+                                    'nama' => 'Siti Rahma',
+                                    'kelas' => 'XII RPL 2',
+                                    'reward' => 'Merchandise',
+                                    'tanggal' => '2024-06-03',
+                                    'status' => 'Belum Diambil',
+                                ],
+                                (object) [
+                                    'no' => 3,
+                                    'nama' => 'Budi Santoso',
+                                    'kelas' => 'XII Bahasa',
+                                    'reward' => 'Pulsa',
+                                    'tanggal' => '2024-06-05',
+                                    'status' => 'Sudah Diambil',
+                                ],
+                            ];
+                        @endphp
+                        <div class="overflow-x-auto hide-scrollbar">
+                            <table class="min-w-full divide-y divide-gray-200 mt-6 rounded-2xl">
+                                <thead class="bg-[#F1F4F9] rounded-2xl">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">No.</th>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Nama</th>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Kelas</th>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Reward</th>
+                                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Tanggal Tukar</th>
+                                        <th class="px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    @foreach ($rewardList as $reward)
+                                        <tr class="h-18">
+                                            <td class="px-6 py-4 whitespace-nowrap">{{ $reward->no }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{ $reward->nama }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{ $reward->kelas }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{ $reward->reward }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">{{ $reward->tanggal }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                @if ($reward->status == 'Belum Diambil')
+                                                    <form method="POST" 
+                                                    {{-- action="{{ route('admin.reward.taken', $reward->no) }}" --}}
+                                                    >
+                                                        @csrf
+                                                        <button type="submit"
+                                                            class="px-3 py-2 rounded-md text-xs font-semibold btn-zprimary transition">
+                                                            Tandai Sudah Diambil
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <button type="button"
+                                                        class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 cursor-not-allowed"
+                                                        disabled>
+                                                        Sudah Diambil
+                                                    </button>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

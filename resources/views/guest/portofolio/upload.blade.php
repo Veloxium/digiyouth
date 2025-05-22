@@ -98,7 +98,7 @@
                     <div class="mb-4">
                         <label for="name" class="block text-lg font-medium">Link Project<span
                                 class="text-zprimary">*</span></label>
-                        <input type="text" name="name" id="name" required
+                        <input type="url" name="name" id="name" required
                             class="mt-1 block w-full p-3 border-gray-300 rounded-lg border focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm"
                             placeholder="Nama User" value="Sanji Zuckerberg">
                     </div>
