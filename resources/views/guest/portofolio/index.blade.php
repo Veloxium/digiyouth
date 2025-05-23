@@ -10,30 +10,32 @@
                 <div class="place-content-center place-items-center my-10">
                     <div class="flex items-center justify-center gap-2">
                         <div>
-                            <img src="/images/profile.png" alt="img-profile" class="w-20 h-20 rounded-full mx-auto">
+                            <img src="{{ $user->profile_picture ? asset('storage/public/user/profile/' . $user->profile_picture) : asset('images/profile.png') }}"
+                                alt="img-profile" class="w-20 h-20 rounded-full mx-auto">
                         </div>
                         <div>
-                            <p class="text-xl font-semibold">Sanji Zuckerberg</p>
-                            <p class="flex items-center gap-2 text-gray-500">XII TJA 1 <span
-                                    class="w-1 h-1 rounded-full bg-gray-400 inline-block" aria-hidden="true"></span> 8 Karya
+                            <p class="text-xl font-semibold">{{ $user->name }}</p>
+                            <p class="flex items-center gap-2 text-gray-500">{{ $user->class }}<span
+                                    class="w-1 h-1 rounded-full bg-gray-400 inline-block" aria-hidden="true"></span>
+                                {{ $totalProjects }} Karya
                             </p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 my-4">
                         <div class="flex items-center gap-2">
                             <img src="/images//thumb.svg" alt="like" class="w-6 h-6" />
-                            <p class="text-sm text-gray-400 font-semibold">200</p>
+                            <p class="text-sm text-gray-400 font-semibold">{{ $totalLikes }}</p>
                         </div>
                         <div class="flex items-center gap-2">
                             <img src="/images//view.svg" alt="view" class="w-6 h-6" />
-                            <p class="text-sm text-gray-400 font-semibold">1.340</p>
+                            <p class="text-sm text-gray-400 font-semibold">{{$totalViews}}</p>
                         </div>
                         <div class="flex items-center gap-2">
                             <img src="/images//share.svg" alt="share" class="w-6 h-6" />
                             <p class="text-sm text-gray-400 font-semibold">Share</p>
                         </div>
                     </div>
-                    <p class="text-lg">Eksplor berbagai project menarik dari Sanji Zuckerberg</p>
+                    <p class="text-lg">Eksplor berbagai project menarik dari {{ $user->name }}</p>
                 </div>
                 <div class="mt-20 flex flex-1 w-full items-end md:items-center justify-between">
                     <div class="flex flex-col-reverse md:flex-row items-start md:items-center gap-4">
@@ -84,36 +86,48 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-4 my-20 w-full">
-                    @for ($i = 0; $i < 2; $i++)
-                        <a href="{{ url('portofolio/dummyID/statistic') }}">
+
+                    @foreach ($projects as $project)
+                        <a href="{{ url('portofolio/'. $project->id .' /statistic') }}">
+
                             <div class="card" style="flex: 0 0 auto;">
                                 <div
-                                    class="relative overflow-hidden  h-[200px] md:h-[270px] w-full md:w-[424px] bg-zprimary rounded-2xl place-content-center place-items-center p-6 mb-4">
+                                    class="relative overflow-hidden h-[200px] md:h-[270px] w-full md:w-[424px] bg-zprimary rounded-2xl place-content-center place-items-center p-6 mb-4">
                                     <div
                                         class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent">
                                     </div>
+
+                                    @if ($project->project_picture)
+                                        <img src="{{ asset('storage/public/user/projects/' . $project->project_picture) }}"
+                                            alt="{{ $project->project_title }}"
+                                            class="absolute top-0 left-0 w-full h-full object-cover z-0" />
+                                    @endif
                                 </div>
+
                                 <div class="flex items-center gap-2 justify-between">
-                                    <p class="text-lg font-semibold">UI/UX Design Competition</p>
-                                    <p class="px-6 py-3 bg-label rounded-full text-zprimary">Hipster</p>
+                                    <p class="text-lg font-semibold">{{ $project->project_title }}</p>
+                                    <p class="px-6 py-3 bg-label rounded-full text-zprimary">
+                                        {{ $project->category?->category_name ?? 'Tanpa kategori' }}
+                                    </p>
                                 </div>
+
                                 <div class="flex items-center gap-4">
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//thumb.svg" alt="like" class="w-6 h-6" />
-                                        <p class="text-sm text-gray-400 font-semibold">200</p>
+                                        <img src="/images/thumb.svg" alt="like" class="w-6 h-6" />
+                                        <p class="text-sm text-gray-400 font-semibold">{{ $project->likes_count }}</p>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//view.svg" alt="view" class="w-6 h-6" />
-                                        <p class="text-sm text-gray-400 font-semibold">1.340</p>
+                                        <img src="/images/view.svg" alt="view" class="w-6 h-6" />
+                                        <p class="text-sm text-gray-400 font-semibold">{{ $project->views_count }}</p>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <img src="/images//share.svg" alt="share" class="w-6 h-6" />
+                                        <img src="/images/share.svg" alt="share" class="w-6 h-6" />
                                         <p class="text-sm text-gray-400 font-semibold">Share</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="mb-20">
                     <nav class="flex items-center justify-center mt-8 space-x-2">

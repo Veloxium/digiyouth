@@ -34,7 +34,7 @@
                         </button>
                         <div x-show="openCategory" @click.away="openCategory = false" x-transition
                             class="absolute -left-40 mt-2 w-[600px] text-sm bg-base border border-gray-200 rounded shadow-lg z-20 grid grid-cols-3 p-2">
-                            <a href="{{ url('/category/cloud-engineer') }}"
+                            <a href="{{ url('/category/cloud-engineer?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -46,7 +46,7 @@
                                 </svg>
                                 Cloud Engineer
                             </a>
-                            <a href="{{ url('/category/hacker') }}"
+                            <a href="{{ url('/category/hacker?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -59,7 +59,7 @@
                                     <path d="M12 12l0 2.5" />
                                 </svg>
                                 Hacker</a>
-                            <a href="{{ url('/category/graphic-designer') }}"
+                            <a href="{{ url('/category/graphic-designer?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -73,7 +73,7 @@
                                     <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                                 </svg>
                                 Graphic Designer</a>
-                            <a href="{{ url('/category/hipster') }}"
+                            <a href="{{ url('/category/hipster?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -86,7 +86,7 @@
                                     <path d="M10 3v18" />
                                 </svg>
                                 Hipster</a>
-                            <a href="{{ url('/category/hustler') }}"
+                            <a href="{{ url('/category/hustler?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -98,7 +98,7 @@
                                     <path d="M7 14l3 -3l2 2l3 -3l2 2" />
                                 </svg>
                                 Hustler</a>
-                            <a href="{{ url('/category/iot-engineer') }}"
+                            <a href="{{ url('/category/iot-engineer?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -116,7 +116,7 @@
                                 </svg>
                                 IoT
                                 Engineer</a>
-                            <a href="{{ url('/category/network-engineer') }}"
+                            <a href="{{ url('/category/network-engineer?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -130,7 +130,7 @@
                                     <path d="M12.5 3a17 17 0 0 1 0 18" />
                                 </svg>
                                 Network Engineer</a>
-                            <a href="{{ url('/category/fiber-optic-engineer') }}"
+                            <a href="{{ url('/category/fiber-optic-engineer?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -145,7 +145,7 @@
                                     <path d="M13 14l-2 2" />
                                 </svg>
                                 Fiber Optic Engineer</a>
-                            <a href="{{ url('/category/system-administrator') }}"
+                            <a href="{{ url('/category/system-administrator?sort=latest') }}"
                                 class="flex items-center gap-1 px-4 py-2 hover:bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -172,10 +172,15 @@
                                 System Administrator</a>
                         </div>
                     </div>
-                    <a class="text-lg px-2 py-1 @if (request()->is('portofolio')) active @endif"
-                        href="{{ url('/portofolio') }}">Portofolio</a>
-                    <a class="text-lg px-2 py-1 @if (request()->is('reward')) active @endif"
-                        href="{{ url('/reward') }}">Reward</a>
+                    @auth
+                        <a class="text-lg px-2 py-1 @if (request()->is('portofolio')) active @endif"
+                            href="{{ url('/portofolio?sort=latest') }}">Portofolio</a>
+                        <a class="text-lg px-2 py-1 @if (request()->is('reward')) active @endif"
+                            href="{{ url('/reward') }}">Reward</a>
+                    @else
+                        <a class="text-lg px-2 py-1 pointer-events-none text-gray-400">Portofolio</a>
+                        <a class="text-lg px-2 py-1 pointer-events-none text-gray-400">Reward</a>
+                    @endauth
                 </div>
             </div>
 
@@ -195,7 +200,17 @@
                 </div>
                 <div>
                     @auth
-                        <button class="px-6 py-2 btn-zprimary rounded">Logout</button>
+                        <span class="flex gap-4">
+                            <a href="{{ url('/profile') }}">
+                                <img src="{{ Auth::user()->profile_picture ? asset('storage/public/user/profile/' . Auth::user()->profile_picture) : asset('images/profile.png') }}"
+                                    alt="Profile Picture" class="w-10 h-10 rounded-full object-cover" />
+                            </a>
+
+                            <form method="POST" action="{{ url('/authentication/logout') }}">
+                                @csrf
+                                <button type="submit" class="px-6 py-2 btn-zprimary rounded">Logout</button>
+                            </form>
+                        </span>
                     @else
                         <a href="{{ url('/authentication/login') }}" class="px-6 py-2 btn-zprimary rounded">
                             Login
@@ -233,45 +248,61 @@
                         class="text-base py-2 w-full text-left flex items-center justify-between @if (request()->is('category')) active @endif"
                         type="button">
                         Kategori
-                        <svg :class="{ 'rotate-180': openCategoryMobile }" class="w-4 h-4 transition-transform inline-block"
-                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg :class="{ 'rotate-180': openCategoryMobile }"
+                            class="w-4 h-4 transition-transform inline-block" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                     <div x-show="openCategoryMobile" @click.away="openCategoryMobile = false" x-transition
                         class="mt-2 w-full bg-base rounded z-20 flex flex-col">
-                        <a href="{{ url('/category/cloud-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/cloud-engineer?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Cloud Engineer
                         </a>
-                        <a href="{{ url('/category/hacker') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/hacker?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Hacker
                         </a>
-                        <a href="{{ url('/category/graphic-designer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/graphic-designer?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Graphic Designer
                         </a>
-                        <a href="{{ url('/category/hipster') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/hipster?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Hipster
                         </a>
-                        <a href="{{ url('/category/hustler') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/hustler?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Hustler
                         </a>
-                        <a href="{{ url('/category/iot-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/iot-engineer?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             IoT Engineer
                         </a>
-                        <a href="{{ url('/category/network-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/network-engineer?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Network Engineer
                         </a>
-                        <a href="{{ url('/category/fiber-optic-engineer') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/fiber-optic-engineer?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             Fiber Optic Engineer
                         </a>
-                        <a href="{{ url('/category/system-administrator') }}" class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                        <a href="{{ url('/category/system-administrator?sort=latest') }}"
+                            class="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                             System Administrator
                         </a>
                     </div>
                 </div>
-                <a class="block text-base py-2 @if (request()->is('portofolio')) active @endif"
-                    href="{{ url('/portofolio') }}">Portofolio</a>
-                <a href="#" class="block text-base py-2">Reward</a>
+                @auth
+                    <a class="block text-base py-2 @if (request()->is('portofolio')) active @endif"
+                        href="{{ url('/portofolio?sort=latest') }}">Portofolio</a>
+                    <a class="block text-base py-2 @if (request()->is('reward')) active @endif"
+                        href="{{ url('/reward') }}">Reward</a>
+                @else
+                    <a class="block text-base py-2 pointer-events-none text-gray-400">Portofolio</a>
+                    <a class="block text-base py-2 pointer-events-none text-gray-400">Reward</a>
+                @endauth
                 <div class="relative">
                     <div class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
                         <!-- search icon -->
@@ -286,7 +317,17 @@
                 </div>
                 <div class="mt-2 ms-auto">
                     @auth
-                        <button class="w-full py-2 btn-zprimary rounded">Logout</button>
+                        <span class="flex gap-4">
+                            <a href="{{ url('/profile') }}">
+                                <img src="{{ Auth::user()->profile_picture ? asset('storage/public/user/profile/' . Auth::user()->profile_picture) : asset('images/profile.png') }}"
+                                    alt="Profile Picture" class="w-10 h-10 rounded-full object-cover" />
+                            </a>
+
+                            <form method="POST" action="{{ url('/authentication/logout') }}">
+                                @csrf
+                                <button type="submit" class="px-8 py-2 btn-zprimary rounded">Logout</button>
+                            </form>
+                        </span>
                     @else
                         <a href="{{ url('/authentication/login') }}"
                             class="w-full py-2 px-8 btn-zprimary rounded">Login</a>
