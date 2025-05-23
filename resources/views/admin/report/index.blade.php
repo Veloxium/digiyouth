@@ -6,17 +6,46 @@
             <div class="px-4 sm:px-6 lg:px-10 py-10">
                 <div class="flex justify-between items-center">
                     <p class="text-2xl font-semibold">Report Data Karya Siswa</p>
-                    <button class="btn-zprimary flex font-bold py-2 px-4 rounded gap-2" {{-- onclick="window.location.href='{{ route('admin.report.export') }}'" --}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-download">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-                            <path d="M7 11l5 5l5 -5" />
-                            <path d="M12 4l0 12" />
-                        </svg>
-                        Unduh
-                    </button>
+                    <div class="flex gap-2">
+                        <button class="btn-zprimary flex font-bold py-2 px-4 rounded gap-2" {{-- onclick="window.location.href='{{ route('admin.report.export') }}'" --}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-download">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                                <path d="M7 11l5 5l5 -5" />
+                                <path d="M12 4l0 12" />
+                            </svg>
+                            Unduh
+                        </button>
+                        <div class="border rounded pr-2 focus:ring-2 focus:ring-blue-500">
+                            <select name="month" id="month"
+                                class="px-3 py-2 focus:outline-none">
+                                @php
+                                    $months = [
+                                        1 => 'Januari',
+                                        2 => 'Februari',
+                                        3 => 'Maret',
+                                        4 => 'April',
+                                        5 => 'Mei',
+                                        6 => 'Juni',
+                                        7 => 'Juli',
+                                        8 => 'Agustus',
+                                        9 => 'September',
+                                        10 => 'Oktober',
+                                        11 => 'November',
+                                        12 => 'Desember',
+                                    ];
+                                    $currentMonth = now()->month;
+                                @endphp
+                                @foreach ($months as $num => $name)
+                                    <option value="{{ $num }}" {{ $num == $currentMonth ? 'selected' : '' }}>
+                                        {{ $name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="rounded-2xl py-10 p-6 bg-white mt-10">
                     @php

@@ -11,7 +11,7 @@
 </head>
 
 <body class="font-outfit">
-    <main>
+    <main class="bg-[#F5F6FA] min-h-screen">
         <!-- Mobile Navbar & Hamburger -->
         <header class="md:hidden flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-white fixed top-0 left-0 right-0 z-30">
             <div class="flex items-center gap-2">
