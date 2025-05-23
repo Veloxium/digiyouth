@@ -19,8 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'nis',
+        'class',
         'password',
+        'profile_picture',
+        'bio'
     ];
 
     /**
@@ -44,5 +47,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+
+    public function likedProjects()
+    {
+        return $this->belongsToMany(Project::class, 'project_likes')->withTimestamps();
+    }
+
+    public function likedComments()
+    {
+        return $this->belongsToMany(Comment::class, 'comment_likes')->withTimestamps();
     }
 }
