@@ -10,11 +10,12 @@
                 <div class="w-full bg-white rounded-2xl pt-16 pb-10 px-6">
                     <div class="flex items-center justify-center gap-4 mb-4">
                         <div>
-                            <img src="/images/profile.png" alt="img-profile" class="w-36 h-36 rounded-full mx-auto">
+                            <img src="{{ $user->profile_picture ? asset('storage/public/user/profile/' . $user->profile_picture) : asset('images/profile.png') }}"
+                                alt="img-profile" class="w-36 h-36 rounded-full mx-auto">
                         </div>
                         <div>
-                            <p class="text-xl font-semibold mb-4">Sanji Zuckerberg</p>
-                            <label for="image"
+                            <p class="text-xl font-semibold mb-4">{{ $user->name }}</p>
+                            <label for="profile_picture"
                                 class="gap-2 border border-zprimary text-sm text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded-lg px-4 py-2.5 text-center inline-flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -27,30 +28,32 @@
                             </label>
                         </div>
                     </div>
-                    <form action="" class="w-full mx-auto max-w-4xl mb-20 md:mb-0 md:my-20">
-                        <input type="file" hidden name="image" id="image">
+                    <form action="/profile/update" method="POST" enctype="multipart/form-data" class="w-full mx-auto max-w-4xl mb-20 md:mb-0 md:my-20">
+                        @csrf
+                        @method('PUT')
+                        <input type="file" hidden name="profile_picture" id="profile_picture">
                         <div class="mb-4">
                             <label for="name" class="block text-lg font-medium">Nama<span
                                     class="text-zprimary">*</span></label>
                             <input type="text" name="name" id="name" required
                                 class="mt-1 block w-full p-3 border-gray-300 rounded-lg border focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm"
-                                placeholder="Nama User" value="Sanji Zuckerberg">
+                                placeholder="Nama User" value="{{ $user->name }}">
                         </div>
                         <div class="mb-4">
                             <label for="class" class="block text-lg font-medium">Kelas<span
                                     class="text-zprimary">*</span></label>
                             <input type="text" name="class" id="class" required
                                 class="mt-1 block w-full p-3 border-gray-300 rounded-lg border focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm"
-                                placeholder="Kelas" value="XII TJA 1">
+                                placeholder="Kelas" value="{{ $user->class }}">
                         </div>
                         <div class="mb-4">
-                            <label for="name" class="block text-lg font-medium">Bio<span
+                            <label for="bio" class="block text-lg font-medium">Bio<span
                                     class="text-zprimary">*</span></label>
-                            <textarea name="description" id="description" required rows="6"
+                            <textarea name="bio" id="bio" required rows="6"
                                 class="mt-1 block w-full p-3 border-gray-300 rounded-lg border focus:outline-none focus:ring focus:ring-zprimary focus:border-zprimary sm:text-sm"
-                                placeholder="Deskripsi project max 100 karakter"></textarea>
+                                placeholder="Deskripsi project max 100 karakter">{{ $user->bio }}</textarea>
                         </div>
-                        <button
+                        <button type="submit"
                             class="w-full flex justify-center mt-8 items-center text-center py-3 px-4 gap-2 btn-zprimary rounded">
                             <p>Simpan</p>
                         </button>
