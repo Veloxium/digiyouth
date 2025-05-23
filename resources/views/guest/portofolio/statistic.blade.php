@@ -26,11 +26,13 @@
                             <div class="card" style="flex: 0 0 auto;">
                                 <div
                                     class="relative overflow-hidden h-[200px] md:h-[312px] w-full bg-zprimary rounded-2xl place-content-center place-items-center">
-                                    <img src="/images/statistic.png" alt="portofolio" class="w-full h-full object-cover" />
+                                    <img src="{{ asset('storage/public/user/projects/' . $project->project_picture) }}"
+                                        alt="portofolio" class="w-full h-full object-cover" />
                                     <div class="flex items-center gap-2 z-20 absolute bottom-6 left-6">
                                         <div class="flex flex-col items-start gap-4 text-white">
-                                            <p class="text-lg font-semibold">UI/UX Design Competition</p>
-                                            <p class="px-6 py-2 bg-label rounded-full text-zprimary">Hipster</p>
+                                            <p class="text-lg font-semibold">{{ $project->project_title }}</p>
+                                            <p class="px-6 py-2 bg-label rounded-full text-zprimary">
+                                                {{ $project->category->category_name }}</p>
                                         </div>
                                     </div>
                                     <div
@@ -44,15 +46,15 @@
                         <div class="grid grid-cols-2 gap-4 h-full">
                             <div class="flex flex-col justify-center shadow-md border border-gray-300 p-6 rounded-lg ">
                                 <p class="font-semibold">Total Views</p>
-                                <p class="text-zprimary text-4xl font-semibold mt-2">1,290</p>
+                                <p class="text-zprimary text-4xl font-semibold mt-2">{{ $totalViews }}</p>
                             </div>
                             <div class="flex flex-col justify-center shadow-md border border-gray-300 p-6 rounded-lg ">
                                 <p class="font-semibold">Likes</p>
-                                <p class="text-zprimary text-4xl font-semibold mt-2">400</p>
+                                <p class="text-zprimary text-4xl font-semibold mt-2">{{ $totalLikes }}</p>
                             </div>
                             <div class="flex flex-col justify-center shadow-md border border-gray-300 p-6 rounded-lg ">
                                 <p class="font-semibold">Comments</p>
-                                <p class="text-zprimary text-4xl font-semibold mt-2">20</p>
+                                <p class="text-zprimary text-4xl font-semibold mt-2">{{ $totalComments }}</p>
                             </div>
                             <div class="flex flex-col justify-center shadow-md border border-gray-300 p-6 rounded-lg ">
                                 <p class="font-semibold">Shares</p>
@@ -82,7 +84,7 @@
         const chartConfig = {
             series: [{
                 name: "Views",
-                data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                data: @json($viewsData),
             }, ],
             chart: {
                 type: "line",
