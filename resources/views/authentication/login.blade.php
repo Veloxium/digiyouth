@@ -8,7 +8,7 @@
                 <h1 class="text-4xl font-bold mb-4">Masuk</h1>
                 <h1 class="mb-4 text-gray-500">Masuk ke akun kamu</h1>
                 <div class="w-full max-w-sm mx-auto">
-                    <form>
+                    <form method="POST" action="/authentication/login">
                         @csrf
                         <div class="mb-4">
                             <label for="email" class="block text-lg font-medium">NIS</label>
@@ -29,7 +29,7 @@
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                     <path id="eyeOpen2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                    <g id="eyeClosed" >
+                                    <g id="eyeClosed">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17.94 17.94A10.97 10.97 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.97 10.97 0 012.293-3.95M6.1 6.1A10.97 10.97 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.97 10.97 0 01-1.357 2.572M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
